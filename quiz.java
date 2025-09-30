@@ -38,6 +38,8 @@ public class Quiz {
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
+        Collections.shuffle(questions, new Random());
+
         int qNumber = 1;
         for (Question q : questions) {
             System.out.println("\nQ" + qNumber++ + ". " + q.getPrompt());
