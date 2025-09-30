@@ -53,11 +53,20 @@ public class Quiz {
             char answer = scanner.next().toUpperCase().charAt(0);
 
             if (answer == q.getCorrectAnswer()) {
-                System.out.println("✅ Correct!");
-                score++;
+        
+        System.out.println("✅ Correct!");
+            score++;
             } else {
-                System.out.println("❌ Wrong! Correct answer: " + q.getCorrectAnswer());
-            }
+            System.out.println("❌ Wrong! Try again...");
+            char retry = readAnswer(scanner, q.getOptions().length);
+            if (retry == q.getCorrectAnswer()) {
+            System.out.println("✅ Correct on retry!");
+            score++;
+            } else {
+        System.out.println("❌ Still wrong. Correct answer: " + q.getCorrectAnswer());
+        }
+        }
+
         }
 
         showResults();
